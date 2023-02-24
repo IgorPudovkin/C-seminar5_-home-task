@@ -4,6 +4,7 @@
 using System;
 using static System.Console; 
  Clear();
+ 
 int[] array = randomArray(4); 
 WriteLine($"[{string.Join(",",array)}] -> {countOfEven(array)}"); 
 int[] randomArray(int size)

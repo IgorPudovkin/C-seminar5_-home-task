@@ -1,7 +1,8 @@
 ﻿// Задача 35:Задайте одномерный массив из 123 случайных чисел [0: 1000].
 //Найдите коли-во элементов массива, значения которых лежат в отрезке [10,99].
 Console.Clear();
-int[] startArray = GetArray(123, -200 , 1230);
+
+int[] startArray = GetArray(123, 0 , 1000);
 Console.WriteLine($"Num of el in seg[10;99] = {GetCountElements(startArray, 10, 99)}");
 int[] GetArray(int size, int minValue, int maxValue)
 {
