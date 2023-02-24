@@ -1,33 +1,47 @@
 ﻿// Задача 38: Задайте массив вещественных чисел.
 //Найдите разницу между максимальным и минимальным элементов массива.
-//[3 7 22 2 78] -> 76
-Console.Clear();
-double[] startArray = GetArray(100, -5, -2);
-Console.WriteLine(String.Join(" ", startArray));
-Console.WriteLine($"Разница = {GetDifference(startArray)}");
+//[3 7 22 2 78] -> 76 
+using System; 
+using static System.Console; 
+Clear(); 
 
-double[] GetArray(int size, double minValue, double maxValue)
+double[] array = randomArray(10); 
+WriteLine($"[{string.Join(", ",array)}] -> {(Math.Round(getMax(array) - getMin(array), 2))}"); 
+
+double[] randomArray(int size)
 {
-    double[] res = new double[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        res[i] = new Random().NextDouble() * (maxValue - minValue) + minValue;
-    }
-    return res;
+     Random random = new Random(); 
+     double[] array = new double[size]; 
+     for(int i = 0; i < array.Length; i++)
+     {
+        array[i] = Math.Round(random.NextDouble(), 2);
+     }
+return array;
 }
 
-double GetDifference(double[] array)
+double getMin(double[] array)
 {
-    double min = array[0];
-    double max = array[0];
-    
-    foreach (var item in array)
-    {
-        if (min > item) min = item;
-        if (max < item) max = item;
-    }
-    Console.WriteLine($"{min}, {max}");
-    return max - min;
+     double min = array[0]; 
+     for(int i = 1; i < array.Length; i++)
+     {
+         if(array[i] < min)
+         {
+            min = array[i];
+         }
+     }
+return min;
+}
+
+double getMax(double[] array) 
+{
+     double max = array[0]; 
+     for(int i = 1; i < array.Length; i++)
+     {
+        if(array[i] > max)
+        {
+            max = array[i];
+        }
+     }
+return max; 
 }
 
